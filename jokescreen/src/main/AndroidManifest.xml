@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.jokescreen" >
+
+    <application>
+        <activity android:name=".JokeActivity"></activity>
+    </application>
+
+</manifest>
