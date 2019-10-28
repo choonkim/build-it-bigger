@@ -1,6 +1,7 @@
 package com.udacity.gradle.builditbigger;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -15,6 +16,8 @@ public class GetJokeAsyncTask extends AsyncTask<Void, Void, String> {
     private static MyApi myApi = null;
 
     private OnEventListener<String> mCallBack;
+
+    private final String TAG = GetJokeAsyncTask.class.getSimpleName();
 
     public GetJokeAsyncTask(OnEventListener callback) {
         mCallBack = callback;
@@ -38,7 +41,8 @@ public class GetJokeAsyncTask extends AsyncTask<Void, Void, String> {
         try {
             return myApi.getJoke().execute().getData();
         } catch (IOException e) {
-            return e.getMessage();
+            Log.e(TAG, e.getMessage());
+            return "";
         }
     }
 
